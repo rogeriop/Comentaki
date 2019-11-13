@@ -2,6 +2,24 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import firebase from './firebase'
 
+//
+/*
+// Criar conta e autenticar
+firebase
+  .auth()
+  .createUserWithEmailAndPassword('pinheiro@gmail.com', 'abc123')
+  .then( user => {
+    console.log(user)
+  })
+ */ 
+// Altera dados da conta
+firebase.auth().onAuthStateChanged(user => {
+  console.log(user.displayName)
+  user.updateProfile({ displayName: 'João Pinheiro'})
+})
+
+//
+
 const useDatabase = endpoint => {
   const [data, setData] = useState({})
   useEffect(() => {
