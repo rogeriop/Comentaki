@@ -3,6 +3,9 @@ import './App.css';
 import NewComment from './NewComment'
 import Comments from './Comments'
 
+import { AuthProvider } from './auth'
+import CreateUser from './CreateUser'
+
 //
 /*
 // Criar conta e autenticar
@@ -14,33 +17,19 @@ firebase
   })
  * / 
 // Altera dados da conta
-firebase.auth().onAuthStateChanged(user => {
-  console.log(user.displayName)
-  user.updateProfile({ displayName: 'João Pinheiro'})
-})
+
 */
-//
-
-// UseDataBase
-
-// useDatabasePush
-
-
-//
-
-
-// Comments
-
-// NewComment
-
 
 function App() {
 
   return (
-    <div>
-    <NewComment />
-    <Comments />
-    </div>
+    <AuthProvider>
+      <div>
+        <NewComment />
+        <Comments />
+        <CreateUser />
+      </div>
+    </AuthProvider>
   );
 }
 
