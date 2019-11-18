@@ -18,14 +18,14 @@ const CreateUser = () => {
             <h3>Criar nova conta:</h3>
             {
                 auth.createUser.createUserState.error !== '' &&
-                <p>{auth.createUser.createUserState.error}</p>
+                <p className="alert alert-danger" >{auth.createUser.createUserState.error}</p>
             }
-            {JSON.stringify(auth.createUser)}
-            <input type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')}/>
-            <input type='password' placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
-            <button onClick={() => {
+
+            <input type='text' className="form-control" placeholder='Seu e-mail' value={form.email} onChange={onChange('email')}/>
+            <input type='password' className="form-control" placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
+            <button className="btn btn-primary" onClick={() => {
                 auth.createUser.createUser(form.email, form.passwd)
-            }}>Criar Conta</button>
+            }}>Criar</button>
         </>
     )
 }

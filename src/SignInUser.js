@@ -10,17 +10,19 @@ const SignInUser = () => {
             [campo]: evt.target.value
         })
     }
+    if (auth.user !== null) {
+        return null
+    }
     return (
         <>
             <h3>Entrar na sua conta:</h3>
             {
                 auth.signInUser.signInUserState.error !== '' &&
-                <p>{auth.signInUser.signInUserState.error}</p>
+                <div className="alert alert-dark" role="alert">{auth.signInUser.signInUserState.error}</div>
             }
-            {JSON.stringify(auth.createUser)}
-            <input type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')}/>
-            <input type='password' placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
-            <button onClick={() => {
+            <input type='text' className="form-control" placeholder='Seu e-mail' value={form.email} onChange={onChange('email')}/>
+            <input type='password' className="form-control" placeholder='Sua senha' value={form.passwd} onChange={onChange('passwd')} />
+            <button className="btn btn-primary" onClick={() => {
                 auth.signInUser.signInUser(form.email, form.passwd)
             }}>Entrar</button>
         </>

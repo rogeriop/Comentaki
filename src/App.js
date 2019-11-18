@@ -13,7 +13,7 @@ import SignInUser from './SignInUser'
 function App() {
   return (
     <AuthProvider>
-      <div>
+      <div className='container'>
         <NewComment />
         <Comments />
         <CreateUser />
