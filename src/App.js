@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './App.css';
 import NewComment from './NewComment'
 import Comments from './Comments'
@@ -14,8 +14,8 @@ function App() {
   return (
     <AuthProvider>
       <div className='container'>
-        <NewComment />
         <Comments />
+        <NewComment />
         <CreateUser />
         <SignInUser />
         <UserInfo />

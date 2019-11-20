@@ -3,10 +3,11 @@ import Time from './Time'
 import { AuthContext } from './auth'
 
 const Comment = ({ comment }) => {
-    const auth = useContext(AuthContext)
+    //const auth = useContext(AuthContext)
     return (
       <div>
-        {comment.content} por: {comment.user.name} em: <Time timestamp={comment.createdAt} />
+        
+        <span class="text-black-50 border-bottom">{comment.content} por: {comment.user.name} em: <Time timestamp={comment.createdAt} /></span>
       </div>
     )
   }
